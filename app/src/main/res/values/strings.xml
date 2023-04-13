@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nomemedicamento">nomeMedicamento</string>
+    <string name="frequencia">frequencia</string>
+    <string name="dose">dose</string>
+    <string name="pilula">pilula</string>
+    <string name="horas">horas</string>
+    <string name="checkBox">checkBox</string>
+    <string name="texto_usuario">Coloque aqui as informacoes do remedio</string>
+    <string name="nome_usuario">Nome do Remedio</string>
+    <string name="dosagem_usuario">Dosagem</string>
+    <string name="frequencia_usuario">Frequencia</string>
+    <string name="criar_remedio">Criar</string>
+    <string name="deletar_remedio">Deletar</string>
+    <string name="criarUsuario">Criar Remedio</string>
+</resources>
