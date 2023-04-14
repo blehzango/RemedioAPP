@@ -4,14 +4,17 @@ public class RemedioModelo {
     private String nome_remedio;
     private Double dose;
     private Integer frequencia;
-    private int img;
+    private int img = android.R.drawable.btn_star ;
 
     public RemedioModelo(String nome_remedio, Double dose, Integer frequencia) {
         this.nome_remedio = nome_remedio;
         this.dose = dose;
         this.frequencia = frequencia;
-        this.img=img;
+       // this.img=img;
     }
+
+
+
 
 
     public int getImg() {

@@ -17,12 +17,12 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList<RemedioModelo> remedios = new ArrayList<>();
+    public static ArrayList<RemedioModelo> remedios = new ArrayList<>();
     RecyclerView recyclerView;
-    FloatingActionButton criarRemedio;
-    FloatingActionButton deletarRemedio;
+    Button criarRemedio;
+    Button deletarRemedio;
 
-    @SuppressLint("WrongViewCast")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,13 +55,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        deletarRemedio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
+
+        remedios.add(new RemedioModelo("nome", 1.5, 2));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Remedio_RecyclerViewAdaptador adapter = new Remedio_RecyclerViewAdaptador(this, remedios);
+        RemediorRecyclerViewAdaptador adapter = new RemediorRecyclerViewAdaptador(this, remedios);
         recyclerView.setAdapter(adapter);
 
     }

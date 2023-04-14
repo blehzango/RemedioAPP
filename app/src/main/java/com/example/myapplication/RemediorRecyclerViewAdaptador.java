@@ -14,30 +14,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Remedio_RecyclerViewAdaptador extends RecyclerView.Adapter<Remedio_RecyclerViewAdaptador.MyViewHolder> {
+public class RemediorRecyclerViewAdaptador extends RecyclerView.Adapter<RemediorRecyclerViewAdaptador.MyViewHolder> {
     Context context;
     ArrayList<RemedioModelo> remedios;
 
-    public Remedio_RecyclerViewAdaptador(Context context, ArrayList<RemedioModelo> remedios) {
+    public RemediorRecyclerViewAdaptador(Context context, ArrayList<RemedioModelo> remedios) {
         this.context = context;
         this.remedios = remedios;
     }
 
     @NonNull
     @Override
-    public Remedio_RecyclerViewAdaptador.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RemediorRecyclerViewAdaptador.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        //infla o layout
-        View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_linha, parent);
+        View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_linha, parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Remedio_RecyclerViewAdaptador.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RemediorRecyclerViewAdaptador.MyViewHolder holder, int position) {
     // dar valores para as views que criaram em recycler_view_linha layout
         //holder.tvNome.setText(RemedioModelo.get(position).getNome_remedio());
         RemedioModelo remedio = (RemedioModelo) remedios.get(position);
-        holder.tvNome.setText(RemedioModelo.get(position).getNome_remedio());
-        holder.tvFrequencia.setText(RemedioModelo.get(position).getFrequencia());
+        holder.tvNome.setText(remedio.getNome_remedio());
+        holder.tvFrequencia.setText(remedio.getFrequencia()+"");
     }
 
     @Override
@@ -57,7 +57,6 @@ public class Remedio_RecyclerViewAdaptador extends RecyclerView.Adapter<Remedio_
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             imageView =itemView.findViewById(R.id.pilula_imagem);
             tvNome =itemView.findViewById(R.id.nome_remedio);
             tvFrequencia =itemView.findViewById(R.id.frequencia_remedio);
