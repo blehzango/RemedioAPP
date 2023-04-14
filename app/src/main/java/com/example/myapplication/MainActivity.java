@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Button criarRemedio;
     Button deletarRemedio;
+    Button criarUsuario;
 
 
     @Override
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView_remedios);
         criarRemedio = findViewById(R.id.criarRemedio);
+        criarUsuario =findViewById(R.id.criarUsuario);
 
         criarRemedio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                         remedios.add(new RemedioModelo(nome, dose, frequencia));
                         recyclerView.scrollToPosition(remedios.size() - 1);
                         dialog.dismiss();
+
+                        criarUsuario.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Dialog dialog = new Dialog(MainActivity.this);
+                                dialog.setContentView(R.layout.activity_main);
+                                RemedioModelo remedio = new RemedioModelo(nome, dose, frequencia);
+                            }
+                        });
+
                     }
                 });
                 dialog.show();

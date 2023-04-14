@@ -15,8 +15,6 @@ public class RemedioModelo {
 
 
 
-
-
     public int getImg() {
         return img;
     }

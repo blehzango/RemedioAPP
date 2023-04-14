@@ -38,6 +38,7 @@ public class RemediorRecyclerViewAdaptador extends RecyclerView.Adapter<Remedior
         RemedioModelo remedio = (RemedioModelo) remedios.get(position);
         holder.tvNome.setText(remedio.getNome_remedio());
         holder.tvFrequencia.setText(remedio.getFrequencia()+"");
+        holder.tvDose.setText(remedio.getFrequencia()+"");
     }
 
     @Override
