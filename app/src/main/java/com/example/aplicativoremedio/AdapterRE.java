@@ -93,5 +93,4 @@ public class AdapterRE extends RecyclerView.Adapter<AdapterRE.MyViewHolder> {
             }
         }
     }
-
 }
