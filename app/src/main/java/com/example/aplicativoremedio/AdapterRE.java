@@ -54,7 +54,6 @@ public class AdapterRE extends RecyclerView.Adapter<AdapterRE.MyViewHolder> {
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView Id, Nome, Frequencia, Dose, Horario;
         CheckBox Tomou;
-
         boolean jatomou = false;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
