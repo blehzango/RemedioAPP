@@ -12,6 +12,13 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CriarRemedio extends AppCompatActivity {
+    private TextView id;
+    private EditText nome;
+    private EditText frequencia;
+    private EditText dose;
+    private EditText hora;
+    private EditText minuto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,12 +26,12 @@ public class CriarRemedio extends AppCompatActivity {
 
         FloatingActionButton buttonCriar = findViewById(R.id.btnCriarRemedio);
         FloatingActionButton buttonDeletar = findViewById(R.id.btnDeletarRemedio);
-        TextView id = findViewById(R.id.ptId);
-        EditText nome = findViewById(R.id.ptNome);
-        EditText frequencia = findViewById(R.id.ptFrequencia);
-        EditText dose = findViewById(R.id.ptDose);
-        EditText hora = findViewById(R.id.ptHorarioH);
-        EditText minuto = findViewById(R.id.ptHorarioM);
+        id = findViewById(R.id.ptId);
+        nome = findViewById(R.id.ptNome);
+        frequencia = findViewById(R.id.ptFrequencia);
+        dose = findViewById(R.id.ptDose);
+        hora = findViewById(R.id.ptHorarioH);
+        minuto = findViewById(R.id.ptHorarioM);
 
         Bundle extras = getIntent().getExtras();
         if (extras!=null) {
@@ -40,7 +47,7 @@ public class CriarRemedio extends AppCompatActivity {
             buttonCriar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (checkHora(hora.getText().toString(), minuto.getText().toString())) {
+                    if (checkHora() && checkFields()) {
                         String horario = hora.getText().toString() + ":" + minuto.getText().toString();
                         MainActivity.editRemedio(Integer.parseInt(id.getText().toString()), nome.getText().toString(), frequencia.getText().toString(), dose.getText().toString(), horario);
                         startActivity(new Intent(CriarRemedio.this, MainActivity.class));
@@ -61,7 +68,7 @@ public class CriarRemedio extends AppCompatActivity {
             buttonCriar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (checkHora(hora.getText().toString(), minuto.getText().toString())) {
+                    if (checkHora() && checkFields()) {
                         String horario = hora.getText().toString() + ":" + minuto.getText().toString();
                         MainActivity.addRemedio(nome.getText().toString(), frequencia.getText().toString(), dose.getText().toString(), horario);
                         startActivity(new Intent(CriarRemedio.this, MainActivity.class));
@@ -80,9 +87,27 @@ public class CriarRemedio extends AppCompatActivity {
         }
     }
 
-    public boolean checkHora(String hora, String minuto) {
-        int h = Integer.parseInt(hora);
-        int m = Integer.parseInt(minuto);
+    public boolean checkHora() {
+        int h, m;
+        try {
+            h = Integer.parseInt(hora.getText().toString());
+            m = Integer.parseInt(minuto.getText().toString());
+        } catch (Exception e) {
+            return false;
+        }
         return !(h < 0 || h > 23 || m < 0 || m > 59);
+    }
+
+    public boolean checkFields() {
+        if(nome.getText().toString().equals("")) {
+            return false;
+        }
+        if(frequencia.getText().toString().equals("")) {
+            return false;
+        }
+        if(dose.getText().toString().equals("")) {
+            return false;
+        }
+        return true;
     }
 }
