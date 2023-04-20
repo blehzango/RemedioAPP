@@ -5,8 +5,8 @@ TRABALHO DE MOBILE
 - Exibe a lista de remédios com uma recycle view
 - Caso a lista esteja vazia é necessário que o usuário clique no botão de + para adicionar um remédio, o qual o levará para a tela 2
 - Ao clicar em um remédio da lista o usuário será levado para a tela 2
-- Exibição de remédios é realizada da seguinte maneira: \n
-  &emsp; Nome | Frequencia \n
+- Exibição de remédios é realizada da seguinte maneira: <br>
+  &emsp; Nome | Frequencia <br>
   &emsp; Dose | Horário
 
 ### Tela 2:
