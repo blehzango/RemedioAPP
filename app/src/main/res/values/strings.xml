@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AplicativoRemedio</string>
+    <string name="tvNome">Nome</string>
+    <string name="tvFrequencia">Frequencia</string>
+    <string name="tvDose">Dose</string>
+    <string name="tvHorario">Horario</string>
+    <string name="novo_remedio">Remedio</string>
+    <string name="criar">Criar</string>
+    <string name="criarRemedio">Criar</string>
+    <string name="delete">delete</string>
+    <string name="ptNome">Nome do remedio</string>
+    <string name="ptFrequencia">Frequencia de uso (ex: 2)</string>
+    <string name="ptDose">Dose (mg)</string>
+    <string name="ptHorarioHora">Hora</string>
+    <string name="ptHorarioMinuto">Minuto</string>
+    <string name="tvId">ID</string>
+    <string name="salvar">salvar</string>
+    <string name="deletar">deletar</string>
+</resources>

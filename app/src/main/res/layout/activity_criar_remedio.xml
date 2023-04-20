@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/novo_remedio"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="130dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ptNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/ptNome"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitulo"
+        app:layout_constraintStart_toStartOf="@+id/tvTitulo"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/ptFrequencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/ptFrequencia"
+        android:inputType="number"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/ptNome"
+        app:layout_constraintStart_toStartOf="@+id/ptNome"
+        app:layout_constraintTop_toBottomOf="@+id/ptNome"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/ptDose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/ptDose"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/ptFrequencia"
+        app:layout_constraintStart_toStartOf="@+id/ptFrequencia"
+        app:layout_constraintTop_toBottomOf="@+id/ptFrequencia"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/ptHorarioH"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/ptHorarioHora"
+        android:inputType="time"
+        android:maxLength="2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/ptHorarioM"
+        app:layout_constraintStart_toStartOf="@+id/ptDose"
+        app:layout_constraintTop_toBottomOf="@+id/ptDose" />
+
+    <EditText
+        android:id="@+id/ptHorarioM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/ptHorarioMinuto"
+        android:inputType="time"
+        android:maxLength="2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ptHorarioH"
+        app:layout_constraintEnd_toEndOf="@+id/ptDose"
+        app:layout_constraintStart_toEndOf="@+id/ptHorarioH"
+        app:layout_constraintTop_toTopOf="@+id/ptHorarioH" />
+
+    <TextView
+        android:id="@+id/ptId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/tvId"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCriarRemedio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:contentDescription="@string/salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnDeletarRemedio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:contentDescription="@string/deletar" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
