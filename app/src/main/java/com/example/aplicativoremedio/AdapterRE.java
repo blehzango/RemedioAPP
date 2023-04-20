@@ -6,10 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 
@@ -48,6 +53,9 @@ public class AdapterRE extends RecyclerView.Adapter<AdapterRE.MyViewHolder> {
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView Id, Nome, Frequencia, Dose, Horario;
+        CheckBox Tomou;
+
+        boolean jatomou = false;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             Nome=itemView.findViewById(R.id.tvNome);
@@ -55,6 +63,13 @@ public class AdapterRE extends RecyclerView.Adapter<AdapterRE.MyViewHolder> {
             Dose=itemView.findViewById(R.id.tvFrequencia);
             Horario=itemView.findViewById(R.id.tvHorario);
             Id=itemView.findViewById(R.id.tvId);
+            Tomou=itemView.findViewById(R.id.btnTomouRemedio);
+            Tomou.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    jatomou = !jatomou;
+                }
+            });
             itemView.setOnClickListener(this);
         }
 
@@ -66,13 +81,17 @@ public class AdapterRE extends RecyclerView.Adapter<AdapterRE.MyViewHolder> {
 
         @Override
         public void onClick(View view) {
-            Intent i = new Intent(context, CriarRemedio.class);
-            i.putExtra("ID_REMEDIO", getId());
-            i.putExtra("NOME_REMEDIO", getNome());
-            i.putExtra("FREQUENCIA_REMEDIO", getFrequencia());
-            i.putExtra("DOSE_REMEDIO", getDose());
-            i.putExtra("HORARIO_REMEDIO", getHorario());
-            context.startActivity(i);
+            if (!jatomou) {
+                Intent i = new Intent(context, CriarRemedio.class);
+                i.putExtra("ID_REMEDIO", getId());
+                i.putExtra("NOME_REMEDIO", getNome());
+                i.putExtra("FREQUENCIA_REMEDIO", getFrequencia());
+                i.putExtra("DOSE_REMEDIO", getDose());
+                i.putExtra("HORARIO_REMEDIO", getHorario());
+                context.startActivity(i);
+            } else {
+                Toast.makeText(context, getNome()+" ja foi tomado e não pode ser editado/excluido!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
